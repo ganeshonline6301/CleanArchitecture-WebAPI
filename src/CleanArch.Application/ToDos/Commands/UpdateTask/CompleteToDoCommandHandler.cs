@@ -4,7 +4,7 @@ using CleanArch.Domain.ToDos.Enums;
 using ErrorOr;
 using MediatR;
 
-namespace CleanArch.Application.Tasks.Commands.UpdateTask;
+namespace CleanArch.Application.ToDos.Commands.UpdateTask;
 
 public class CompleteToDoCommandHandler(IToDoRepository toDoRepository) : IRequestHandler<CompleteToDoCommand, ErrorOr<Updated>>
 {

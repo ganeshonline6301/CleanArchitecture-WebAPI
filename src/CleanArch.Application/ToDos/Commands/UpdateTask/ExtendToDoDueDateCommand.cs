@@ -1,7 +1,7 @@
 ﻿using ErrorOr;
 using MediatR;
 
-namespace CleanArch.Application.Tasks.Commands.UpdateTask;
+namespace CleanArch.Application.ToDos.Commands.UpdateTask;
 
 public record ExtendToDoDueDateCommand(
     Guid Id,

@@ -2,7 +2,7 @@
 using ErrorOr;
 using MediatR;
 
-namespace CleanArch.Application.Tasks.Commands.CreateTask;
+namespace CleanArch.Application.ToDos.Commands.CreateTask;
 
 public record CreateToDoCommand(
     string Title,

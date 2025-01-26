@@ -4,7 +4,7 @@ using CleanArch.Domain.ToDos.Enums;
 using ErrorOr;
 using MediatR;
 
-namespace CleanArch.Application.Tasks.Commands.CreateTask;
+namespace CleanArch.Application.ToDos.Commands.CreateTask;
 
 public class CreateToDoCommandHandler(IToDoRepository toDoRepository) : IRequestHandler<CreateToDoCommand, ErrorOr<ToDo>>
 {
