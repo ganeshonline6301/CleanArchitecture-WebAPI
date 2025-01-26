@@ -3,7 +3,7 @@ using CleanArch.Domain.ToDos;
 using MediatR;
 using ErrorOr;
 
-namespace CleanArch.Application.Tasks.Queries.GetToDo;
+namespace CleanArch.Application.ToDos.Queries.GetToDo;
 
 public class GetToDoQueryHandler(IToDoRepository toDoRepository) : IRequestHandler<GetToDoQuery, ErrorOr<ToDo>>
 {

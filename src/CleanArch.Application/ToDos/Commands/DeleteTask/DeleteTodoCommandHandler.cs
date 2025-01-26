@@ -2,7 +2,7 @@
 using ErrorOr;
 using MediatR;
 
-namespace CleanArch.Application.Tasks.Commands.DeleteTask;
+namespace CleanArch.Application.ToDos.Commands.DeleteTask;
 
 public class DeleteTodoCommandHandler(IToDoRepository toDoRepository) : IRequestHandler<DeleteToDoCommand, ErrorOr<Deleted>>
 {

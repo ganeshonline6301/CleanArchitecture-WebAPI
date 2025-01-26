@@ -3,7 +3,7 @@ using CleanArch.Domain.ToDos;
 using ErrorOr;
 using MediatR;
 
-namespace CleanArch.Application.Tasks.Commands.UpdateTask;
+namespace CleanArch.Application.ToDos.Commands.UpdateTask;
 
 public class ExtendToDoDueDateCommandHandler(IToDoRepository toDoRepository) : IRequestHandler<ExtendToDoDueDateCommand, ErrorOr<Updated>>
 {
