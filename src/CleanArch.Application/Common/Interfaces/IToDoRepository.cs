@@ -2,10 +2,7 @@
 
 namespace CleanArch.Application.Common.Interfaces;
 
-public interface IToDoRepository
+public interface IToDoRepository : IRepository<ToDo>
 {
-    Task AddTaskAsync(ToDo toDo);
-    Task UpdateTaskAsync(ToDo toDo);
-    Task DeleteTaskAsync(Guid id);
-    Task<ToDo> GetTaskById(Guid id);
+    Task CompleteTaskAsync(Guid id);
 }
