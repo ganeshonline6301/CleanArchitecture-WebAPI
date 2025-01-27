@@ -6,7 +6,7 @@ using MediatR;
 
 namespace CleanArch.Application.ToDos.Commands.CreateTask;
 
-public class CreateToDoCommandHandler(IToDoRepository toDoRepository) : IRequestHandler<CreateToDoCommand, ErrorOr<ToDo>>
+public class CreateToDoCommandHandler(IRepository<ToDo> toDoRepository) : IRequestHandler<CreateToDoCommand, ErrorOr<ToDo>>
 {
     public async Task<ErrorOr<ToDo>> Handle(CreateToDoCommand command, CancellationToken cancellationToken)
     {
@@ -18,7 +18,7 @@ public class CreateToDoCommandHandler(IToDoRepository toDoRepository) : IRequest
             dueDate: command.DueDate,
             userId: command.UserId);
         
-        await toDoRepository.AddTaskAsync(task);
+        await toDoRepository.AddAsync(task);
         return task;
     }
 }

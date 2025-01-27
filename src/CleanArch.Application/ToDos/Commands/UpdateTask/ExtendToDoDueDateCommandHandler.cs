@@ -5,11 +5,11 @@ using MediatR;
 
 namespace CleanArch.Application.ToDos.Commands.UpdateTask;
 
-public class ExtendToDoDueDateCommandHandler(IToDoRepository toDoRepository) : IRequestHandler<ExtendToDoDueDateCommand, ErrorOr<Updated>>
+public class ExtendToDoDueDateCommandHandler(IRepository<ToDo> toDoRepository) : IRequestHandler<ExtendToDoDueDateCommand, ErrorOr<Updated>>
 {
     public async Task<ErrorOr<Updated>> Handle(ExtendToDoDueDateCommand command, CancellationToken cancellationToken)
     {
-        var result = await toDoRepository.GetTaskById(command.Id);
+        var result = await toDoRepository.GetByIdAsync(command.Id);
 
         if (result is null)
         {
@@ -33,7 +33,7 @@ public class ExtendToDoDueDateCommandHandler(IToDoRepository toDoRepository) : I
             userId: result.UserId
             );
 
-        await toDoRepository.UpdateTaskAsync(todo);
+        await toDoRepository.UpdateAsync(todo);
 
         return Result.Updated;
     }
