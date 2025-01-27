@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArch.Domain", "src\Cle
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArch.Application", "src\CleanArch.Application\CleanArch.Application.csproj", "{C95D2E91-8838-484D-A0C4-87029C233764}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArch.Infrastructure", "src\CleanArch.Infrastructure\CleanArch.Infrastructure.csproj", "{338623CC-C61C-4E39-83D3-F4DE9445454B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArch.Api", "src\CleanArch.Api\CleanArch.Api.csproj", "{1DD7C31F-3020-4FED-9DBD-CB1DB427DD29}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,9 +30,19 @@ Global
 		{C95D2E91-8838-484D-A0C4-87029C233764}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C95D2E91-8838-484D-A0C4-87029C233764}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C95D2E91-8838-484D-A0C4-87029C233764}.Release|Any CPU.Build.0 = Release|Any CPU
+		{338623CC-C61C-4E39-83D3-F4DE9445454B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{338623CC-C61C-4E39-83D3-F4DE9445454B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{338623CC-C61C-4E39-83D3-F4DE9445454B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{338623CC-C61C-4E39-83D3-F4DE9445454B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DD7C31F-3020-4FED-9DBD-CB1DB427DD29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DD7C31F-3020-4FED-9DBD-CB1DB427DD29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DD7C31F-3020-4FED-9DBD-CB1DB427DD29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DD7C31F-3020-4FED-9DBD-CB1DB427DD29}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{16B08382-7706-4602-9025-89B94DE23F99} = {D92BF626-44FF-4015-B65F-96F329338643}
 		{C95D2E91-8838-484D-A0C4-87029C233764} = {D92BF626-44FF-4015-B65F-96F329338643}
+		{338623CC-C61C-4E39-83D3-F4DE9445454B} = {D92BF626-44FF-4015-B65F-96F329338643}
+		{1DD7C31F-3020-4FED-9DBD-CB1DB427DD29} = {D92BF626-44FF-4015-B65F-96F329338643}
 	EndGlobalSection
 EndGlobal
