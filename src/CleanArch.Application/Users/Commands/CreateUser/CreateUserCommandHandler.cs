@@ -5,7 +5,7 @@ using ErrorOr;
 
 namespace CleanArch.Application.Users.Commands.CreateUser;
 
-public class CreateUserCommandHandler(IUserRepository userRepository) : IRequestHandler<CreateUserCommand, ErrorOr<User>>
+public class CreateUserCommandHandler(IRepository<User> userRepository) : IRequestHandler<CreateUserCommand, ErrorOr<User>>
 {
     public async Task<ErrorOr<User>> Handle(CreateUserCommand command, CancellationToken cancellationToken)
     {
@@ -14,7 +14,7 @@ public class CreateUserCommandHandler(IUserRepository userRepository) : IRequest
             email: command.Email
         );
 
-        await userRepository.AddUsersync(user);
+        await userRepository.AddAsync(user);
 
         return user;
     }
