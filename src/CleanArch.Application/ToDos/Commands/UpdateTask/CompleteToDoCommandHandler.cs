@@ -6,7 +6,7 @@ using MediatR;
 
 namespace CleanArch.Application.ToDos.Commands.UpdateTask;
 
-public class CompleteToDoCommandHandler(IRepository<ToDo> toDoRepository) : IRequestHandler<CompleteToDoCommand, ErrorOr<Updated>>
+public class CompleteToDoCommandHandler(IToDoRepository toDoRepository) : IRequestHandler<CompleteToDoCommand, ErrorOr<Updated>>
 {
     public async Task<ErrorOr<Updated>> Handle(CompleteToDoCommand command, CancellationToken cancellationToken)
     {
@@ -23,17 +23,7 @@ public class CompleteToDoCommandHandler(IRepository<ToDo> toDoRepository) : IReq
             return completeToDoResult.Errors;
         }
 
-        var todo = new ToDo(
-            id: command.Id,
-            title: result.Title,
-            description: result.Description,
-            dueDate: result.DueDate,
-            status: (ToDoStatus)command.status,
-            priority: result.Priority,
-            userId: result.UserId
-        );
-
-        await toDoRepository.UpdateAsync(todo);
+        await toDoRepository.CompleteTaskAsync(command.Id);
         
         return Result.Updated;
     }
