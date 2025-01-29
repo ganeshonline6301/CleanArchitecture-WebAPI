@@ -1,4 +1,5 @@
 ﻿using CleanArch.Domain.ToDos;
+using CleanArch.Domain.ToDos.Enums;
 using ErrorOr;
 using MediatR;
 
@@ -8,5 +9,5 @@ public record CreateToDoCommand(
     string Title,
     string Description,
     DateTime DueDate,
-    int Priority,
+    ToDoPriority Priority,
     Guid UserId) : IRequest<ErrorOr<ToDo>>;
