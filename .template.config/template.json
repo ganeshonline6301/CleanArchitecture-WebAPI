@@ -1,0 +1,24 @@
+﻿{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Ganesh Penke",
+  "sourceName": "CleanArch",
+  "identity": "Robin.CleanArch.Template",
+  "name": "Clean Architecture Web-API template",
+  "shortName": "cleanarch-webapi-template",
+  "defaultName": "CleanArchTemplate",
+  "description": "A Clean Architecture-based Web API template for ASP.NET Core.",
+  "classifications": [
+    "Web",
+    "ASP.NET",
+    "Clean Architecture"
+  ],
+  "tags": {
+    "type": "solution",
+    "language": "c#"
+  },
+  "primaryOutputs": [
+    {
+      "path": "CleanArch.sln"
+    }
+  ]
+}
