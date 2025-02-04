@@ -5,9 +5,9 @@ using MediatR;
 
 namespace CleanArch.Application.Todos.Commands.DeleteTodo;
 
-public class DeleteTodoCommandHandler(IRepository<Todo> toDoRepository) : IRequestHandler<DeleteToDoCommand, ErrorOr<Deleted>>
+public class DeleteTodoCommandHandler(IRepository<Todo> toDoRepository) : IRequestHandler<DeleteTodoCommand, ErrorOr<Deleted>>
 {
-    public async Task<ErrorOr<Deleted>> Handle(DeleteToDoCommand command, CancellationToken cancellationToken)
+    public async Task<ErrorOr<Deleted>> Handle(DeleteTodoCommand command, CancellationToken cancellationToken)
     {
         var result = await toDoRepository.GetByIdAsync(command.Id);
 

@@ -58,7 +58,7 @@ namespace CleanArch.Api.Controllers
         [HttpDelete("{todoId:guid}")]
         public async Task<IActionResult> DeleteTodo(Guid todoId)
         {
-            var command = new DeleteToDoCommand(todoId);
+            var command = new DeleteTodoCommand(todoId);
 
             var deleteTodoResult = await mediator.Send(command);
             
