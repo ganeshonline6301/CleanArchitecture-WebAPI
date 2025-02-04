@@ -3,5 +3,5 @@ using MediatR;
 
 namespace CleanArch.Application.Todos.Commands.DeleteTodo;
 
-public record DeleteToDoCommand(
+public record DeleteTodoCommand(
     Guid Id) : IRequest<ErrorOr<Deleted>>;
