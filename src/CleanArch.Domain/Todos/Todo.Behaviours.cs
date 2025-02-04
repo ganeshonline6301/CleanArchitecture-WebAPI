@@ -1,41 +1,41 @@
-﻿using CleanArch.Domain.ToDos.Enums;
+﻿using CleanArch.Domain.Todos.Enums;
 using ErrorOr;
 
-namespace CleanArch.Domain.ToDos;
+namespace CleanArch.Domain.Todos;
 
-public partial class ToDo
+public partial class Todo
 {
     public ErrorOr<Success> StartTask()
     {
-        if (Status != ToDoStatus.NotStarted)
+        if (Status != TodoStatus.NotStarted)
         {
-            return ToDoErrors.TaskAlreadyStarted;
+            return TodoErrors.TaskAlreadyStarted;
         }
-        Status = ToDoStatus.InProgress;
+        Status = TodoStatus.InProgress;
         return Result.Success;
     }
 
     public ErrorOr<Success> CompleteTask()
     {
-        if (Status == ToDoStatus.Completed)
+        if (Status == TodoStatus.Completed)
         {
-            return ToDoErrors.TaskAlreadyCompleted;
+            return TodoErrors.TaskAlreadyCompleted;
         }
-        if (Status != ToDoStatus.InProgress)
+        if (Status != TodoStatus.InProgress)
         {
-            return ToDoErrors.TaskNotInProgress;
+            return TodoErrors.TaskNotInProgress;
         }
-        Status = ToDoStatus.Completed;
+        Status = TodoStatus.Completed;
         return Result.Success;
     }
     
     public ErrorOr<Success> ReopenTask()
     {
-        if (Status != ToDoStatus.Completed)
+        if (Status != TodoStatus.Completed)
         {
-            return ToDoErrors.TaskNotCompleted;
+            return TodoErrors.TaskNotCompleted;
         }
-        Status = ToDoStatus.InProgress;
+        Status = TodoStatus.InProgress;
         return Result.Success;
     }
     
@@ -43,7 +43,7 @@ public partial class ToDo
     {
         if (newDueDate <= DueDate)
         {
-            return ToDoErrors.InvalidDueDate;
+            return TodoErrors.InvalidDueDate;
         }
         DueDate = newDueDate;
         return Result.Success;
@@ -53,12 +53,12 @@ public partial class ToDo
     {
         if (string.IsNullOrEmpty(newTitle))
         {
-            return ToDoErrors.InvalidTitle;
+            return TodoErrors.InvalidTitle;
         }
 
         if (Title == newTitle)
         {
-            return ToDoErrors.SameTitle;
+            return TodoErrors.SameTitle;
         }
         Title = newTitle;
         return Result.Success;
@@ -68,28 +68,28 @@ public partial class ToDo
     {
         if (string.IsNullOrEmpty(newDescription))
         {
-            return ToDoErrors.InvalidDescription;
+            return TodoErrors.InvalidDescription;
         }
 
         if (Description == newDescription)
         {
-            return ToDoErrors.SameDescription;
+            return TodoErrors.SameDescription;
         }
         Description = newDescription;
         return Result.Success;
     }
 
-    public ErrorOr<Success> UpdatePriority(ToDoPriority newPriority)
+    public ErrorOr<Success> UpdatePriority(TodoPriority newPriority)
     {
         if (Priority == newPriority)
         {
-            return ToDoErrors.SamePriority;
+            return TodoErrors.SamePriority;
         }
         Priority = newPriority;
         return Result.Success;
     }
     
-    public ErrorOr<Success> UpdateDetails(string? newTitle = null, string? newDescription = null,ToDoStatus newStatus = null, ToDoPriority newPriority = null, DateTime? newDueDate = null)
+    public ErrorOr<Success> UpdateDetails(string? newTitle = null, string? newDescription = null,TodoStatus newStatus = null, TodoPriority newPriority = null, DateTime? newDueDate = null)
     {
         var errors = new List<Error>();
         

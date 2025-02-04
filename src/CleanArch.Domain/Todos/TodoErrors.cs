@@ -1,26 +1,26 @@
 ﻿using ErrorOr;
 
-namespace CleanArch.Domain.ToDos;
+namespace CleanArch.Domain.Todos;
 
-public static class ToDoErrors
+public static class TodoErrors
 {
     public static readonly Error InvalidTitle = Error.Validation(
-        code: "ToDo.InvalidTitle",
+        code: "Todo.InvalidTitle",
         description: "The title cannot be empty or null."
     );
 
     public static readonly Error SameTitle = Error.Conflict(
-        code: "ToDo.SameTitle",
+        code: "Todo.SameTitle",
         description: "The new title is the same as the current one."
     );
 
     public static readonly Error InvalidDescription = Error.Validation(
-        code: "ToDo.InvalidDescription",
+        code: "Todo.InvalidDescription",
         description: "The description cannot be empty or null."
     );
 
     public static readonly Error SameDescription = Error.Conflict(
-        code: "ToDo.SameDescription",
+        code: "Todo.SameDescription",
         description: "The new description is the same as the current one."
     );
     

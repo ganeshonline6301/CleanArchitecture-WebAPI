@@ -1,7 +1,7 @@
 ﻿using ErrorOr;
 using MediatR;
 
-namespace CleanArch.Application.ToDos.Commands.DeleteTask;
+namespace CleanArch.Application.Todos.Commands.DeleteTodo;
 
 public record DeleteToDoCommand(
     Guid Id) : IRequest<ErrorOr<Deleted>>;

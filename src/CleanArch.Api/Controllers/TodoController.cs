@@ -1,8 +1,8 @@
 using CleanArch.Api.Common.Contracts.Todos;
 using CleanArch.Api.Common.Extensions;
-using CleanArch.Application.ToDos.Commands.CreateTask;
-using CleanArch.Application.ToDos.Commands.DeleteTask;
-using CleanArch.Application.ToDos.Queries.GetToDo;
+using CleanArch.Application.Todos.Commands.CreateTodo;
+using CleanArch.Application.Todos.Commands.DeleteTodo;
+using CleanArch.Application.Todos.Queries.GetTodo;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,13 +10,13 @@ namespace CleanArch.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ToDoController(ISender mediator) : ControllerBase
+    public class TodoController(ISender mediator) : ControllerBase
     {
         [HttpPost]
         public async Task<IActionResult> CreateTodo([FromBody]CreateTodoRequest request, Guid userId)
         {
 
-            var command = new CreateToDoCommand(
+            var command = new CreateTodoCommand(
                 Title: request.Title,
                 Description: request.Description,
                 DueDate: request.DueDate,
@@ -42,7 +42,7 @@ namespace CleanArch.Api.Controllers
         [HttpGet("{todoId:guid}")]
         public async Task<IActionResult> GetTodo(Guid todoId)
         {
-            var query = new GetToDoQuery(todoId);
+            var query = new GetTodoQuery(todoId);
 
             var getTodoResult = await mediator.Send(query);
 

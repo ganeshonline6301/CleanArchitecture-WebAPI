@@ -1,8 +1,8 @@
-﻿using CleanArch.Domain.ToDos;
+﻿using CleanArch.Domain.Todos;
 
 namespace CleanArch.Application.Common.Interfaces;
 
-public interface IToDoRepository : IRepository<ToDo>
+public interface ITodoRepository : IRepository<Todo>
 {
     Task CompleteTaskAsync(Guid id);
 }

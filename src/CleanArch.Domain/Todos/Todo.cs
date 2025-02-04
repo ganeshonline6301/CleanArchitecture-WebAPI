@@ -1,18 +1,18 @@
 ﻿using CleanArch.Domain.Common;
-using CleanArch.Domain.ToDos.Enums;
+using CleanArch.Domain.Todos.Enums;
 
-namespace CleanArch.Domain.ToDos;
+namespace CleanArch.Domain.Todos;
 
-public partial class ToDo : Entity
+public partial class Todo : Entity
 {
     public string Title { get; private set; }
     public string Description { get; private set; }
-    public ToDoPriority Priority { get; private set; }
-    public ToDoStatus Status { get; private set; }
+    public TodoPriority Priority { get; private set; }
+    public TodoStatus Status { get; private set; }
     public DateTime DueDate { get; private set; }
     public Guid UserId { get; private set; }
 
-    public ToDo(string title, string description, ToDoPriority priority, ToDoStatus status, DateTime dueDate, Guid userId, Guid? id = null) : base(id ?? Guid.NewGuid())
+    public Todo(string title, string description, TodoPriority priority, TodoStatus status, DateTime dueDate, Guid userId, Guid? id = null) : base(id ?? Guid.NewGuid())
     {
         Title = title;
         Description = description;
@@ -22,7 +22,7 @@ public partial class ToDo : Entity
         UserId = userId;
     }
 
-    private ToDo()
+    private Todo()
     {
         
     }

@@ -1,9 +1,9 @@
 ﻿using ErrorOr;
 using MediatR;
 
-namespace CleanArch.Application.ToDos.Commands.UpdateTask;
+namespace CleanArch.Application.Todos.Commands.UpdateTodo;
 
-public record UpdateToDoCommand(
+public record UpdateTodoCommand(
     Guid Id, 
     string Title,
     string Description,

@@ -1,14 +1,14 @@
 ﻿using CleanArch.Application.Common.Interfaces;
-using CleanArch.Domain.ToDos;
-using CleanArch.Domain.ToDos.Enums;
+using CleanArch.Domain.Todos;
+using CleanArch.Domain.Todos.Enums;
 using ErrorOr;
 using MediatR;
 
-namespace CleanArch.Application.ToDos.Commands.UpdateTask;
+namespace CleanArch.Application.Todos.Commands.UpdateTodo;
 
-public class UpdateToDoCommandHandler(IRepository<ToDo> toDoRepository) : IRequestHandler<UpdateToDoCommand, ErrorOr<Updated>>
+public class UpdateTodoCommandHandler(IRepository<Todo> toDoRepository) : IRequestHandler<UpdateTodoCommand, ErrorOr<Updated>>
 {
-    public async Task<ErrorOr<Updated>> Handle(UpdateToDoCommand command, CancellationToken cancellationToken)
+    public async Task<ErrorOr<Updated>> Handle(UpdateTodoCommand command, CancellationToken cancellationToken)
     {
         var result = await toDoRepository.GetByIdAsync(command.Id);
 
@@ -17,12 +17,12 @@ public class UpdateToDoCommandHandler(IRepository<ToDo> toDoRepository) : IReque
             return Error.NotFound(description:"Task not found");
         }
 
-        var todo = new ToDo(
+        var todo = new Todo(
             id: command.Id,
             title: command.Title,
             description: command.Description,
-            priority: (ToDoPriority)command.Priority,
-            status: (ToDoStatus)command.status,
+            priority: (TodoPriority)command.Priority,
+            status: (TodoStatus)command.status,
             dueDate: command.DueDate,
             userId: result.UserId
         );
@@ -30,8 +30,8 @@ public class UpdateToDoCommandHandler(IRepository<ToDo> toDoRepository) : IReque
        var updateToDoResult = result.UpdateDetails(
            newTitle: command.Title, 
            newDescription: command.Description,
-           newStatus: (ToDoStatus?)command.status,
-           newPriority: (ToDoPriority?)command.Priority,
+           newStatus: (TodoStatus?)command.status,
+           newPriority: (TodoPriority?)command.Priority,
            newDueDate: command.DueDate);
 
        if (updateToDoResult.IsError)
