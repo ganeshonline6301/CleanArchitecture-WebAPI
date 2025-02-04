@@ -1,18 +1,18 @@
-﻿using CleanArch.Domain.ToDos;
-using CleanArch.Domain.ToDos.Enums;
+﻿using CleanArch.Domain.Todos;
+using CleanArch.Domain.Todos.Enums;
 using TestCommon.TestConstants;
 
 namespace TestCommon.Todos;
 
 public static class TodoFactory
 {
-    public static ToDo CreateTodo(
-        ToDoPriority? priority = null,
-        ToDoStatus? status = null,
+    public static Todo CreateTodo(
+        TodoPriority? priority = null,
+        TodoStatus? status = null,
         Guid? userId = null,
         Guid? id = null)
     {
-        return new ToDo(
+        return new Todo(
             title: Constants.Todos.Title,
             description: Constants.Todos.Description,
             dueDate: Constants.Todos.DueDate,

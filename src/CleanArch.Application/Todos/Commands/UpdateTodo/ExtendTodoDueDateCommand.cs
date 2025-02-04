@@ -3,6 +3,6 @@ using MediatR;
 
 namespace CleanArch.Application.ToDos.Commands.UpdateTask;
 
-public record ExtendToDoDueDateCommand(
+public record ExtendTodoDueDateCommand(
     Guid Id,
     DateTime DueDate): IRequest<ErrorOr<Updated>>;

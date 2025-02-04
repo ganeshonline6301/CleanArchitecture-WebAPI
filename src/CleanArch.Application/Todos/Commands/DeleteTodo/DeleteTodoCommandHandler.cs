@@ -1,11 +1,11 @@
 ﻿using CleanArch.Application.Common.Interfaces;
-using CleanArch.Domain.ToDos;
+using CleanArch.Domain.Todos;
 using ErrorOr;
 using MediatR;
 
-namespace CleanArch.Application.ToDos.Commands.DeleteTask;
+namespace CleanArch.Application.Todos.Commands.DeleteTodo;
 
-public class DeleteTodoCommandHandler(IRepository<ToDo> toDoRepository) : IRequestHandler<DeleteToDoCommand, ErrorOr<Deleted>>
+public class DeleteTodoCommandHandler(IRepository<Todo> toDoRepository) : IRequestHandler<DeleteToDoCommand, ErrorOr<Deleted>>
 {
     public async Task<ErrorOr<Deleted>> Handle(DeleteToDoCommand command, CancellationToken cancellationToken)
     {

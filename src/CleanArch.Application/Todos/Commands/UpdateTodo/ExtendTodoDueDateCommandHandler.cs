@@ -1,13 +1,13 @@
 ﻿using CleanArch.Application.Common.Interfaces;
-using CleanArch.Domain.ToDos;
+using CleanArch.Domain.Todos;
 using ErrorOr;
 using MediatR;
 
 namespace CleanArch.Application.ToDos.Commands.UpdateTask;
 
-public class ExtendToDoDueDateCommandHandler(IRepository<ToDo> toDoRepository) : IRequestHandler<ExtendToDoDueDateCommand, ErrorOr<Updated>>
+public class ExtendTodoDueDateCommandHandler(IRepository<Todo> toDoRepository) : IRequestHandler<ExtendTodoDueDateCommand, ErrorOr<Updated>>
 {
-    public async Task<ErrorOr<Updated>> Handle(ExtendToDoDueDateCommand command, CancellationToken cancellationToken)
+    public async Task<ErrorOr<Updated>> Handle(ExtendTodoDueDateCommand command, CancellationToken cancellationToken)
     {
         var result = await toDoRepository.GetByIdAsync(command.Id);
 
@@ -23,7 +23,7 @@ public class ExtendToDoDueDateCommandHandler(IRepository<ToDo> toDoRepository) :
             return extendDueDateResult.Errors;
         }
 
-        var todo = new ToDo(
+        var todo = new Todo(
             id: command.Id,
             title: result.Title,
             description: result.Description,
