@@ -4,8 +4,8 @@ using ErrorOr;
 namespace CleanArch.Domain.Todos;
 
 public partial class Todo
-{
-    public ErrorOr<Success> StartTask()
+{ 
+    public ErrorOr<Success> StartTodo()
     {
         if (Status != TodoStatus.NotStarted)
         {
@@ -15,7 +15,7 @@ public partial class Todo
         return Result.Success;
     }
 
-    public ErrorOr<Success> CompleteTask()
+    public ErrorOr<Success> CompleteTodo()
     {
         if (Status == TodoStatus.Completed)
         {
@@ -29,7 +29,7 @@ public partial class Todo
         return Result.Success;
     }
     
-    public ErrorOr<Success> ReopenTask()
+    public ErrorOr<Success> ReopenTodo()
     {
         if (Status != TodoStatus.Completed)
         {
@@ -89,44 +89,37 @@ public partial class Todo
         return Result.Success;
     }
     
-    public ErrorOr<Success> UpdateDetails(string? newTitle = null, string? newDescription = null,TodoStatus newStatus = null, TodoPriority newPriority = null, DateTime? newDueDate = null)
+    public ErrorOr<Success> UpdateDetails(
+        string? newTitle = null,
+        string? newDescription = null,
+        TodoStatus? newStatus = null,
+        TodoPriority? newPriority = null,
+        DateTime? newDueDate = null)
     {
         var errors = new List<Error>();
         
         if (!string.IsNullOrWhiteSpace(newTitle) && Title != newTitle)
         {
             var result = UpdateTitle(newTitle);
-            if (result.IsError)
-            {
-                errors.Add(result.FirstError);
-            }
+            if (result.IsError) errors.Add(result.FirstError);
         }
 
         if (!string.IsNullOrWhiteSpace(newDescription) && Description != newDescription)
         {
             var result = UpdateDescription(newDescription);
-            if (result.IsError)
-            {
-                errors.Add(result.FirstError);
-            }
+            if (result.IsError) errors.Add(result.FirstError);
         }
 
         if (Priority != newPriority.Value)
         {
             var result = UpdatePriority(newPriority);
-            if (result.IsError)
-            {
-                errors.Add(result.FirstError);
-            }
+            if (result.IsError) errors.Add(result.FirstError);
         }
 
         if (newDueDate.HasValue && newDueDate > DueDate)
         {
             var result = ExtendDueDate(newDueDate.Value);
-            if (result.IsError)
-            {
-                errors.Add(result.FirstError);
-            }
+            if (result.IsError) errors.Add(result.FirstError);
         }
         
         if (errors.Any())
