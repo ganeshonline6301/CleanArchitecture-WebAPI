@@ -1,5 +1,5 @@
 ﻿using CleanArch.Application.Common.Interfaces;
-using CleanArch.Domain.User;
+using CleanArch.Domain.Users;
 using MediatR;
 using ErrorOr;
 
