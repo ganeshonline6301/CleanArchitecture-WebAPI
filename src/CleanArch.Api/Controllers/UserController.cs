@@ -1,9 +1,7 @@
 using CleanArch.Api.Common.Contracts.Users;
 using CleanArch.Application.Users.Commands.CreateUser;
 using CleanArch.Application.Users.Queries;
-using CleanArch.Domain.Users;
 using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CleanArch.Api.Controllers
