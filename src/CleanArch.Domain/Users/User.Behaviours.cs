@@ -1,4 +1,4 @@
-﻿namespace CleanArch.Domain.User;
+﻿namespace CleanArch.Domain.Users;
 
 public partial class User
 {
