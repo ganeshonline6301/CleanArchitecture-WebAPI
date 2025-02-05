@@ -15,7 +15,7 @@ public class CompleteTodoCommandHandler(ITodoRepository todoRepository) : IReque
             return Error.NotFound(description: "Task not found");    
         }
 
-        var completeToDoResult = result.CompleteTask();
+        var completeToDoResult = result.CompleteTodo();
         if (completeToDoResult.IsError)
         {
             return completeToDoResult.Errors;

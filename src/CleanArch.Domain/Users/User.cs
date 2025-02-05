@@ -2,10 +2,10 @@
 
 namespace CleanArch.Domain.User;
 
-public class User : Entity
+public partial class User : Entity
 {
-    public string Name { get; }
-    public string Email { get; }
+    public string Name { get; private set; }
+    public string Email { get; private set; }
 
     public User( string name, string email, Guid? id = null) : base(id ?? Guid.NewGuid())
     {
