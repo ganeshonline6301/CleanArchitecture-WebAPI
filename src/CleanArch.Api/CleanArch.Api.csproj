@@ -16,7 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Common\Contracts\" />
     <Folder Include="Controllers\" />
   </ItemGroup>
 

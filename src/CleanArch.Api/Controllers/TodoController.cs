@@ -35,8 +35,6 @@ namespace CleanArch.Api.Controllers
                         todo.Description,
                         todo.UserId)),
                 error => Problem());
-            
-            return Ok();
         }
 
         [HttpGet("{todoId:guid}")]
